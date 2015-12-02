@@ -1,0 +1,32 @@
+{
+  "name": "ukagaka-preview",
+  "version": "1.0.0",
+  "description": "ukagaka preview bookmarklet",
+  "main": "index.js",
+  "scripts": {
+    "init": "npm run update; npm run build",
+    "update": "rm -rf node_modules; npm update",
+    "clean": "rm lib/*.js dist/*.js demo/*.js",
+    "start": "http-server --silent -p 8000 & coffee -w --compile --output lib src/*.coffee & watchify lib/index.js --outfile dist/ukapre.js  --standalone ukapre -v",
+    "stop": "killall -- node */http-server -p 8000",
+    "build": "coffee -c -o lib src/*.coffee; browserify lib/index.js --standalone ukapre -o dist/ukapre.js",
+    "cat": "cat node_modules/narloader/NarLoader.js >> dist/ukapre.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legokichi/ukagaka-preview.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/legokichi/ukagaka-preview/issues"
+  },
+  "homepage": "https://github.com/legokichi/ukagaka-preview#readme",
+  "dependencies": {
+    "cuttlebone": "ikagaka/cuttlebone#master",
+    "jszip": "*",
+    "encoding-japanese": "*",
+    "ikagaka.sakurascriptplayer.js": "ikagaka/sakurascriptplayer.js#master"
+  }
+}
