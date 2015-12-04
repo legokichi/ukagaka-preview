@@ -6,11 +6,11 @@
   "scripts": {
     "init": "npm run update; npm run build",
     "update": "rm -rf node_modules; npm update",
-    "clean": "rm lib/*.js dist/*.js demo/*.js",
-    "start": "http-server --silent -p 8000 & coffee -w --compile --output lib src/*.coffee & watchify lib/index.js --outfile dist/ukapre.js  --standalone ukapre -v",
+    "clean": "rm lib/*.js dist/*.js ",
+    "start": "http-server --silent -p 8000&",
     "stop": "killall -- node */http-server -p 8000",
-    "build": "coffee -c -o lib src/*.coffee; browserify lib/index.js --standalone ukapre -o dist/ukapre.js",
-    "cat": "cat node_modules/narloader/NarLoader.js >> dist/ukapre.js"
+    "build": "npm run clean; coffee -c -o lib src/*.coffee; browserify lib/index.js --standalone ukapre -o dist/ukapre.js; npm run cat",
+    "cat": "cat bower_components/bluebird/js/browser/bluebird.min.js bower_components/narloader/NarLoader.js >> dist/ukapre.js"
   },
   "repository": {
     "type": "git",

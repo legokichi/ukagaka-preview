@@ -33,6 +33,27 @@ setup = ->
     NarLoader.loadFromURL($ukapreView.find(".narurl").val()).then(changeNar)
   $ukapreView.find(".kill").click ->
     nmdmgr.namedies[hwnd]? && nmdmgr.vanish(hwnd)
+  $frag = $(document.createDocumentFragment())
+  $("a[href]").each (elm,i)->
+    url = $(this).attr("href")
+    if /\.nar$/.test(url)
+      $("<option />").val(url).text(url).appendTo($frag)
+  $ukapreView.find(".narurl").append($frag)
+  do ->
+    # DnD
+    dragging = false
+    relLeft = relTop = 0
+    $ukapreView.mousedown (ev)->
+      dragging = true
+      {top, left} = $ukapreView.offset()
+      {pageX, pageY, clientX, clientY} = SurfaceUtil.getEventPosition(ev)
+      relLeft = clientX - (left - window.scrollX) # サーフェス左上を起点としたマウスの相対座標
+      relTop  = clientY - (top  - window.scrollY)
+    $ukapreView.mouseup -> dragging = false
+    $(document.body).mousemove (ev)->
+      return if !dragging
+      {pageX, pageY, clientX, clientY} = SurfaceUtil.getEventPosition(ev)
+      $ukapreView.css({top: clientY-relTop, left: clientX-relLeft})
 changeNar = (nanikaDir)->
   shelllist = nanikaDir.getDirectory("shell").listChildren()
   $frag = $(document.createDocumentFragment())
@@ -107,21 +128,6 @@ uiMain = ->
       if $(this).prop("checked")
       then shell.showRegion()
       else shell.hideRegion()
-  do ->
-    # DnD
-    dragging = false
-    relLeft = relTop = 0
-    $ukapreView.mousedown (ev)->
-      dragging = true
-      {top, left} = $ukapreView.offset()
-      {pageX, pageY, clientX, clientY} = SurfaceUtil.getEventPosition(ev)
-      relLeft = clientX - (left - window.scrollX) # サーフェス左上を起点としたマウスの相対座標
-      relTop  = clientY - (top  - window.scrollY)
-    $ukapreView.mouseup -> dragging = false
-    $(document.body).mousemove (ev)->
-      return if !dragging
-      {pageX, pageY, clientX, clientY} = SurfaceUtil.getEventPosition(ev)
-      $ukapreView.css({top: clientY-relTop, left: clientX-relLeft})
   return
 
 
@@ -145,9 +151,9 @@ ukapreView = """
   </style>
   <p>
     <label>nar: <input type="file" class="narfile" /></label>
-    <label>url: <input type="url" class="narurl" /></label>
-    <input type="button" class="boot" value="boot" />
-    <input type="button" class="kill" value="kill" />
+    <label>url: <select name="narurl" class="narurl"></select></label>
+    <input type="button" class="boot" value="BOOT" />
+    <input type="button" class="kill" value="KILL" />
   </p>
   <p>
     <label>shell: <select name="shellId" class="shellId"></select></label>
@@ -159,8 +165,8 @@ ukapreView = """
   </p>
   <p>
     <input type='text' class="ss" value="\\0\\s[0]Hello World!\\w8\\1\\s[10]Hello Ukagaka!\\e"/>
-    <input type="submit" class="play" value="play" />
-    <input type="button" class="pos" value="pos" />
+    <input type="submit" class="play" value="PLAY" />
+    <input type="button" class="pos" value="POSITION" />
   </p>
 </form>
 """
