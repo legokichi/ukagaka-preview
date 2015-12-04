@@ -36,7 +36,7 @@ setup = ->
   $frag = $(document.createDocumentFragment())
   $("a[href]").each (elm,i)->
     url = $(this).attr("href")
-    if /\.nar$/.test(url)
+    if /\.nar$|\.zip$/.test(url)
       $("<option />").val(url).text(url).appendTo($frag)
   $ukapreView.find(".narurl").append($frag)
   do ->
