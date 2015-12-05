@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "init": "npm run update; npm run build",
-    "update": "rm -rf node_modules; npm update",
+    "update": "npm update",
     "clean": "rm lib/*.js dist/*.js ",
     "start": "http-server --silent -p 8000&",
     "stop": "killall -- node */http-server -p 8000",
