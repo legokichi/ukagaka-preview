@@ -14569,9 +14569,9 @@ if ('undefined' !== typeof module) {
     };
 
     Balloon.prototype.attachBlimp = function(element, scopeId, balloonId) {
-      var blimp, type;
+      var blimp, ref, type;
       type = scopeId === 0 ? "sakura" : "kero";
-      if (this.balloons[type][balloonId] == null) {
+      if (((ref = this.balloons[type]) != null ? ref[balloonId] : void 0) == null) {
         console.warn("balloon id:", balloonId, "is not defined");
         return null;
       }
@@ -42118,7 +42118,8 @@ if (typeof exports !== "undefined" && exports !== null) {
                 return reject(xhr.statusText);
               }
             });
-            xhr.addEventListener("error", function() {
+            xhr.addEventListener("error", function(err) {
+              console.error(err, err.stack, xhr);
               return reject(xhr.statusText);
             });
             xhr.open("GET", url);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "init": "npm run update; npm run build",
-    "update": "npm update",
+    "update": "rm -rf bower_components; npm update; bower update",
     "clean": "rm lib/*.js dist/*.js ",
     "start": "http-server --silent -p 8000&",
     "stop": "killall -- node */http-server -p 8000",
