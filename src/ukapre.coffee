@@ -4,6 +4,7 @@ window["Encoding"] = require("encoding-japanese")
 window["JSZip"]    = require("jszip")
 
 hwnd = null
+balloonDir = null
 shell = null
 balloon = null
 $ukapreView = null
@@ -13,9 +14,6 @@ exports.loadBalloon = loadBalloon = (url)->
   NarLoader.loadFromURL(url)
   .then (origin)->
     balloonDir = origin.asArrayBuffer()
-    balloon? && balloon.unload()
-    balloon = new Balloon(balloonDir)
-    balloon.load()
 exports.load = load = (opt={})->
   opt.balloonURL ?= "https://ikagaka.github.io/cuttlebone/nar/origin.nar"
   new Promise (resolve, reject)-> $ ->
@@ -88,6 +86,12 @@ changeShell = (nanikaDir)->
   shell? && shell.unload()
   shell = new Shell(shellDir)
   shell.load().then (shell)->
+    bootlog("loaded.")
+    bootlog("loading balloon.")
+    balloon? && balloon.unload()
+    balloon = new Balloon(balloonDir)
+    balloon.load()
+  .then (balloon)->
     bootlog("loaded.")
     uiMain()
   .catch (err)-> bootlog(err); console.error(err, err.stack)
