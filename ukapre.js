@@ -15981,6 +15981,7 @@ var Shell = (function (_super) {
             .then(function () { return _this.loadCollisions(); }) // 3rd
             .then(function () { return _this.loadAnimations(); }) // 3rd
             .then(function () { return _this.loadElements(); }) // 3rd
+            .then(function () { return _this; }) // 3rd
             .catch(function (err) {
             console.error("Shell#load > ", err);
             return Promise.reject(err);
@@ -42177,7 +42178,7 @@ if (typeof exports !== "undefined" && exports !== null) {
     }
 
     NanikaDirectory.prototype.parse = function(arg) {
-      var _files, has_descript, has_install, nowarp, ref, wraped;
+      var has_descript, has_install, nowarp, ref, wraped;
       ref = arg != null ? arg : {}, has_install = ref.has_install, has_descript = ref.has_descript;
       nowarp = Object.keys(this.files).filter(function(filePath) {
         return /^install\.txt/.exec(filePath);
@@ -42185,15 +42186,15 @@ if (typeof exports !== "undefined" && exports !== null) {
       wraped = Object.keys(this.files).filter(function(filePath) {
         return /^[^\/]+\/install\.txt/.exec(filePath);
       });
-      if (nowarp.length === 0 && wraped.length === 1) {
-        _files = {};
-        Object.keys(this.files).forEach((function(_this) {
-          return function(filePath) {
-            return _files[filePath.split("/").slice(1).join("/")] = _this.files[filePath];
-          };
-        })(this));
-        this.files = _files;
-      }
+
+      /*
+      		if(nowarp.length is 0 and wraped.length is 1)
+      			 * ghostname/install.txt -> install.txt
+      			_files = {}
+      			Object.keys(this.files).forEach (filePath)=>
+      				_files[filePath.split("/").slice(1).join("/")] = @files[filePath]
+      			@files = _files
+       */
       if (this.files["install.txt"] != null) {
         this.install = NarDescript.parse(this.files["install.txt"].toString());
       } else if (has_install) {
