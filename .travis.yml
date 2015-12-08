@@ -23,7 +23,7 @@ after_script:
   - git status
   - git commit -am "travis-auto-update"
   - git ls-files
-  - '[ "$TRAVIS_BRANCH" == "master" ] && [ $GH_TOKEN ] && git push --quiet "https://${GH_TOKEN}@github.com/legokichi/ukagaka-preview.git" gh-pages:gh-pages > /dev/null 2>&1'
+  - '[ "$TRAVIS_BRANCH" == "master" ] && [ $GH_TOKEN ] && git push --force --quiet "https://${GH_TOKEN}@github.com/legokichi/ukagaka-preview.git" gh-pages:gh-pages > /dev/null 2>&1'
 env:
   global:
     - GIT_COMMITTER_NAME=legokichi
