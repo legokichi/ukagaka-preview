@@ -5,3 +5,5 @@ javascript:(function(d,u,x,c,a){x=d.createElement("script");x.src=u;x.onload=fun
 ```
 
 ![screenshot](https://raw.githubusercontent.com/legokichi/ukagaka-preview/master/screenshot.png)
+
+![screenshot](https://raw.githubusercontent.com/legokichi/ukagaka-preview/master/screenshot.gif)
