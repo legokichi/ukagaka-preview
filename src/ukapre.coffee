@@ -1,4 +1,4 @@
-{SurfaceUtil, Shell, Balloon, NamedManager} = require("cuttlebone")
+{SurfaceUtil, Shell, Balloon, NamedManager, versions} = require("cuttlebone")
 SSP = require("ikagaka.sakurascriptplayer.js")
 window["Encoding"] = require("encoding-japanese")
 window["JSZip"]    = require("jszip")
@@ -19,6 +19,8 @@ exports.load = load = (opt={})->
   new Promise (resolve, reject)-> $ ->
     $ukapreView = $(ukapreView).appendTo(document.body)
     $(nmdmgr.element).appendTo(document.body)
+    console.log(versions);
+    bootlog(JSON.stringify(versions));
     Promise.resolve()
     .then -> bootlog("downloding ballon nar")
     .then -> loadBalloon(opt.balloonURL)
