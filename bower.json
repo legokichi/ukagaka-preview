@@ -16,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "narloader": "legokichi/NarLoader#issue12",
+    "narloader": "Ikagaka/NarLoader#master",
     "bluebird": "~3.0.6"
   }
 }
