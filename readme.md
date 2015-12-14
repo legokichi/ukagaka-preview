@@ -17,9 +17,6 @@
 * クロスドメインには対応していない
   * 例えば [ssp.shillest.net](ssp.shillest.net) のゴースト配布ページは nar が HTTP 301 で別ドメインに飛ばされるためnarを読み込めない
 * Shell.js@4.1.14 時点での実装状況
-  * surfaces.txt
-    * animatin*.pattern*.collision がまだ動かない
-    * background+exclusive,(1,3,5) がまだ動かない
   * Shell/*/descript.txt 全般ダメ
 
 
