@@ -15417,7 +15417,7 @@ module.exports={
     "/cuttlebone"
   ],
   "_resolved": "git://github.com/ikagaka/Balloon.js.git#e98229912ecb102a1fb1b44e3e02bb127363beda",
-  "_shasum": "2b64447876a6ab11027483738517be2abb285781",
+  "_shasum": "b15f4275650c2b8fd2d785209ccdf576944179fa",
   "_shrinkwrap": null,
   "_spec": "ikagaka.balloon.js@github:ikagaka/Balloon.js",
   "_where": "/Users/yohsukeino/GitHub/Ikagaka/ukagaka-preview/node_modules/cuttlebone",
@@ -19839,7 +19839,7 @@ module.exports={
     "/ikagaka.namedmanager.js"
   ],
   "_resolved": "git://github.com/ikagaka/Shell.js.git#7160321a7e3cc4ec64e06d0c21cf3c875f954a6f",
-  "_shasum": "09a16cf16522edc3a19e1cdccff111b6da524c94",
+  "_shasum": "eab2beb2d1237e9005b3ae076df1a8f386307365",
   "_shrinkwrap": null,
   "_spec": "ikagaka.shell.js@github:ikagaka/Shell.js#master",
   "_where": "/Users/yohsukeino/GitHub/Ikagaka/ukagaka-preview/node_modules/ikagaka.namedmanager.js",
@@ -30300,7 +30300,7 @@ module.exports={
     "/cuttlebone"
   ],
   "_resolved": "git://github.com/ikagaka/NamedManager.js.git#aff74bbf2f598211a501bbf7672ed94f93f4791a",
-  "_shasum": "e8a04b7c8240163997177e9bacc0caf3405d41ad",
+  "_shasum": "9845fae3d78e6261f7fd5421a873f7e78e9a3983",
   "_shrinkwrap": null,
   "_spec": "ikagaka.namedmanager.js@github:ikagaka/NamedManager.js",
   "_where": "/Users/yohsukeino/GitHub/Ikagaka/ukagaka-preview/node_modules/cuttlebone",
@@ -30930,7 +30930,7 @@ module.exports={
     "/ikagaka.balloon.js"
   ],
   "_resolved": "git://github.com/ikagaka/Shell.js.git#7160321a7e3cc4ec64e06d0c21cf3c875f954a6f",
-  "_shasum": "35ccbd1526fc4132a9d64bff7762b81db49a1a22",
+  "_shasum": "1cf389af1a0dfaa6385bc53053ed2a7a2a3460db",
   "_shrinkwrap": null,
   "_spec": "ikagaka.shell.js@github:ikagaka/Shell.js",
   "_where": "/Users/yohsukeino/GitHub/Ikagaka/ukagaka-preview/node_modules/cuttlebone",
