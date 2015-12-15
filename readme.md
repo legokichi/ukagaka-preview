@@ -4,9 +4,9 @@
 
 ## 使い方
 1. 以下のスクリプトをブックマークとして登録します。
-   ```
-   javascript:(function(d,u,x,c,a){x=d.createElement("script");x.src=u;x.onload=function(){ukapre.load({balloonURL:c})};d.body.appendChild(x);}(document,"https://legokichi.github.io/ukagaka-preview/ukapre.js",null));
-   ```
+```
+javascript:(function(d,u,x,c,a){x=d.createElement("script");x.src=u;x.onload=function(){ukapre.load({balloonURL:c})};d.body.appendChild(x);}(document,"https://legokichi.github.io/ukagaka-preview/ukapre.js",null));
+```
 2. ゴースト配布ページを開きます。
 3. ブックマークレットを実行します。
 4. ページの一番上に管理画面が表示されます。
@@ -16,6 +16,7 @@
 ## 備考
 * クロスドメインには対応していない
   * 例えば [ssp.shillest.net](ssp.shillest.net) のゴースト配布ページは nar が HTTP 301 で別ドメインに飛ばされるためnarを読み込めない
+* IFrame、Framesetには対応してない。
 * Shell.js@4.1.14 時点での実装状況
   * Shell/*/descript.txt 全般ダメ
 
