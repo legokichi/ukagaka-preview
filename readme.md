@@ -4,7 +4,7 @@
 
 ## 使い方
 1. 以下のスクリプトをブックマークとして登録します。
-   ```javascript
+   ```
    javascript:(function(d,u,x,c,a){x=d.createElement("script");x.src=u;x.onload=function(){ukapre.load({balloonURL:c})};d.body.appendChild(x);}(document,"https://legokichi.github.io/ukagaka-preview/ukapre.js",null));
    ```
 2. ゴースト配布ページを開きます。
